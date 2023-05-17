@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 const States = () => {
   const [state, setState] = useState(0);
@@ -17,17 +18,30 @@ const States = () => {
   //handle reset button:
 
   const reset = () => {
-    setState(0);
+    if (state == 0) {
+      alert("Nothing to reset. Already 0 !!");
+    } else {
+      setState(0);
+    }
   };
   return (
     <div>
-      <h1>States are here</h1>
-      <button onClick={increment}> increment</button>
-      <button>
-        {state}
+      <button className="btn btn-secondary m-2 p-3 ">
+        Count is: {state}
       </button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset </button>
+      <h2>States are here</h2>
+      <div>
+        <button className="btn btn-primary m-2 p-3 " onClick={increment}>
+          {" "}increment
+        </button>
+
+        <button className="btn btn-danger m-2 p-3 " onClick={decrement}>
+          Decrement
+        </button>
+        <button className="btn btn-warning m-2 p-3 " onClick={reset}>
+          Reset{" "}
+        </button>
+      </div>
     </div>
   );
 };
